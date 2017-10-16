@@ -42,10 +42,10 @@ export default class Counter extends Component {
           <option value="1">1</option>
           <option value="2">2</option>
           <option value="3">3</option>
-        </select>
-        <button onClick={this.increment}>+</button>
-        <button onClick={this.decrement}>-</button>
-        <button onClick={this.incrementIfOdd}>increment if odd</button>
+        </select> {' '}
+        <button onClick={this.increment}>+</button>{' '}
+        <button onClick={this.decrement}>-</button>{' '}
+        <button onClick={this.incrementIfOdd}>increment if odd</button>{' '}
         <button onClick={this.incrementAsync}>increment async</button>
       </div>
     )

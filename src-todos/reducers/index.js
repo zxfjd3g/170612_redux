@@ -9,6 +9,7 @@ const initState = [
 export default function todos(state = initState, action) {
   switch (action.type) {
     case ADD_TODO:
+      // state.unshift(todo)
       return [
         {
           title: action.title,
