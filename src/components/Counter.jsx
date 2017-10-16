@@ -1,48 +1,40 @@
-import React, {Component} from 'react'
+import React, {Component, PropTypes} from 'react'
 
 export default class Counter extends Component {
 
-  /*constructor(props) {
-    super(props)
-    this.state = {
-      count: 0
-    }
-  }*/
-  state = { //给组件对象(Counter的实例)添加属性: state
-    count: 0
+  static propTypes = {
+    count: PropTypes.number.isRequired,
+    increment: PropTypes.func.isRequired,
+    decrement: PropTypes.func.isRequired,
   }
 
   increment = () => {
     const number = this.refs.numberSelect.value*1
-    const count = this.state.count + number
-    this.setState({count})
+    this.props.increment(number)
   }
 
   decrement = () => {
     const number = this.refs.numberSelect.value*1
-    const count = this.state.count - number
-    this.setState({count})
+    this.props.decrement(number)
   }
 
   incrementIfOdd = () => {
-    let count = this.state.count
+    let count = this.props.count
     if(count%2===1) {
       const number = this.refs.numberSelect.value*1
-      count = count + number
-      this.setState({count})
+      this.props.increment(number)
     }
   }
 
   incrementAsync = () => {
     setTimeout(() => {
       const number = this.refs.numberSelect.value*1
-      const count = this.state.count + number
-      this.setState({count})
+      this.props.increment(number)
     }, 1000)
   }
 
   render () {
-    const {count} = this.state
+    const {count} = this.props
     return (
       <div>
         <p>click {count} times</p>
